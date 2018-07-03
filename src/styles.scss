@@ -1,1 +1,132 @@
-/* You can add global styles to this file, and also import other style files */
+
+*{
+    box-sizing: border-box;
+}
+header, footer, section{
+    width: 100%;
+    float: left;
+    position: relative;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+}
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.row{
+    float: left;
+    width: 100%;
+    position: relative;
+}
+h1{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 5;
+    font-size: 4em;
+    color: #5f92ff;
+}
+h2{
+    font-size: 1.8em;
+    text-align: center;
+}
+section{
+    padding-bottom: 100px;
+}
+
+
+// Themes
+
+header.theme-blue{
+    background-color: #fff;
+    box-shadow: 0px 5px 20px -10px #000;
+}
+section.theme-blue{
+    box-shadow: 0px 5px 20px -10px #000;
+}
+footer.theme-blue{
+    background-color: rgb(95, 146, 255);;
+}
+.theme-blue{
+    nav li{
+        color: rgb(95, 146, 255);
+       
+        a{
+            color:  rgb(95, 146, 255);
+        }
+    }
+    .button-down{
+        background-color: rgb(95, 146, 255);
+        i{
+            color: #fff;
+        }
+    }
+    h2{
+        color: rgb(95, 146, 255);
+    }
+    .right{
+        border: 1px solid rgb(95, 146, 255);
+    }
+    .stack-item{
+        box-shadow: 0 0 10px -3px #000;
+        
+        &:hover{
+            box-shadow: 0 0 20px -2px #000;
+        }
+    }
+    .works-item-back-description-text{
+        color: #fff;
+    }
+    .copyright{
+        color: #fff;
+    }
+    .logo a{
+        font-size: 1.8em;
+        color: rgb(95, 146, 255);
+    }
+    .wrapper-h1{
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+
+
+
+// adaptive
+
+@media (max-width: 1300px){
+    .container{
+        width: 960px;
+    }
+}
+
+@media (max-width: 992px){
+    .container{
+        width: 740px;
+    }
+    body{
+        font-size: 15px;
+    }
+    section{
+        padding-bottom: 50px;
+    }
+}
+
+@media (max-width: 768px){
+    .container{
+        width: 540px;
+    }
+  
+}
+
+@media (max-width: 560px){
+    .container{
+        width: 100%;
+        padding: 0 15px;
+    }
+  
+}

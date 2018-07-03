@@ -1,0 +1,24 @@
+<header [class.theme-blue]="this.main.colorThem==0">
+  <div class="container">
+    <div class="row">
+      <div class="logo"><a href="">Yar</a></div>
+      <nav>
+        <ul>
+          <li>
+            <a routerLink="" (click)='_changeActiveUrl(0)' >Main</a>
+            <span class="header-line"></span>
+          </li>
+          <li>
+            <a routerLink="blog" (click)='_changeActiveUrl(1)' >Blog</a>
+            <span class="header-line"></span>
+          </li>
+          <li>
+            <a routerLink="about" (click)='_changeActiveUrl(2)' >About</a>
+            <span class="header-line"></span>
+          </li>
+          <li>Theme</li>
+        </ul>
+      </nav>
+    </div> 
+  </div>
+</header>

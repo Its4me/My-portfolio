@@ -1,0 +1,10 @@
+<section class="img-wrapper" [class.theme-blue]="this.main.colorThem==0" >
+  <div class="wrapper">
+      <h1>My portfolio</h1> 
+    <div class="img" #scrollImg [style.background-image]="'url(assets/main.jpg)'">
+    </div>
+  </div>
+  <button (click)="_scrollToElement()" class="button-down">
+    <i class="fas fa-angle-double-down"></i>
+  </button>
+</section>

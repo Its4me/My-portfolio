@@ -1,0 +1,17 @@
+<section [class.theme-blue]="this.main.colorThem==0">
+  <div class="container">
+    <div class="row">
+        <h2>{{this.main.h2[2]}}</h2>
+        <div class="works">
+          <a *ngFor='let work of this.main.works' href='{{work.src}}' target="_blank" class="works-item">
+            <div class="works-item-front"><img src="{{work.imgSrc}}" alt="{{work.imgSrc}}"></div>
+            <div class="works-item-back">
+              <div class="works-item-back-description">
+                <p class="works-item-back-description-text">{{work.description}}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+    </div>
+  </div>
+</section>

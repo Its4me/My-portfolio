@@ -1,0 +1,34 @@
+<div class="a-main">
+
+  <div class="a-section">
+    <p class="headers-h2">h2: </p>
+    <input matInput [(ngModel)]="this.main.h2[0]" class="headers-text" type="text">
+    <div class="clear"></div>
+    <p class="p-description">Text about me</p>
+    <textarea [(ngModel)]="this.main.aboutMeText" class="headers-description"></textarea>
+  </div>
+
+  <div class="a-section">
+      <p class="headers-h2">h2: </p>
+      <input class="headers-text" [(ngModel)]="this.main.h2[1]" type="text">
+      <div class="clear"></div>
+      <div class="technologies">
+        <div *ngFor="let tech of " class="technologies-item">
+          <p class="technologies-item-head">Name of technology</p> 
+          <input class="technologies-item-input" type="text">
+          <p class="technologies-item-descr">Name of technology</p> 
+          <textarea class="technologies-item-textarea" type="text"></textarea>
+        </div>
+      </div>
+  </div>
+
+  <div class="a-section">
+      <p class="headers-h2">h2: </p>
+      <input class="headers-text" [(ngModel)]="this.main.h2[2]" type="text"> 
+      <div class="clear"></div>
+    
+      
+  </div>
+  <button type="button" (click)='_saveAll()' >Save changes</button>
+
+</div>

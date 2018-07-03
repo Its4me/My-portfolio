@@ -1,0 +1,16 @@
+<section [class.theme-blue]="this.main.colorThem==0">
+  <div class="container">
+    <div class="row">
+      <h2>{{this.main.h2[1]}}</h2>
+      <div class="stack">
+        <div *ngFor='let tech of this.main.stack' class="stack-item" >
+          <div class="imgWrapper"><img src="{{tech.imgSrc}}" alt="{{tech.name}}"></div>
+          <h3>{{tech.name}}</h3>
+          <div class="description">
+            {{tech.description}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

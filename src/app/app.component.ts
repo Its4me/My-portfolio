@@ -1,3 +1,4 @@
+import { MainService } from './main.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+ 
+
+  constructor(private main: MainService){}
+
+  ngOnInit(): void {
+    this.main.h2Get();
+    this.main.aboutGet();
+    this.main.worksGet();
+    this.main.stackGet();
+  }
 }

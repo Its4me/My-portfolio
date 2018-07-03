@@ -1,0 +1,23 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="logo"><a href="">Yar</a></div>
+            <div class="logined">user</div>
+            <div class="theme">Theme</div>
+        </div>
+    </div>
+</header>
+<div class="admin">
+    <nav class="a-left">
+        <p class="nav-header">Pages</p>
+        <ul>
+            <li class="a-navigation" *ngFor="let page of nav" >
+                <a [routerLink]="page.href" >{{page.text}}</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="a-right">
+        <router-outlet></router-outlet>
+    </div>
+   
+</div>
