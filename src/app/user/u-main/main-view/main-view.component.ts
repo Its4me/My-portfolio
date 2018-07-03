@@ -31,21 +31,24 @@ export class MainViewComponent implements OnInit {
   }
 
 
-  _scrollToElement(e){
+  _scrollToElement(){
     let y = document.getElementById("about").offsetTop;
     let currentY = window.scrollY;
-    let timePeriod = 15;
-    let scrollPeriod = 10;
+    let timePeriod = 10;
+    let scrollPeriod = 5;
+    console.log(y);
+    console.log(currentY);
     let intervallId = setInterval(function(){
       if(y != currentY){
         window.scrollTo(0, currentY += scrollPeriod);
-      }else if(y >= currentY){
+      }
+      if(currentY >= y){
         window.scrollTo(0, y);
         clearInterval(intervallId);
       }
        
 
     },timePeriod)
-
+    
   } 
 } 
