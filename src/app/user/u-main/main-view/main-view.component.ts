@@ -36,8 +36,7 @@ export class MainViewComponent implements OnInit {
     let currentY = window.scrollY;
     let timePeriod = 10;
     let scrollPeriod = 5;
-    console.log(y);
-    console.log(currentY);
+  
     let intervallId = setInterval(function(){
       if(y != currentY){
         window.scrollTo(0, currentY += scrollPeriod);
