@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MainService } from '../../../main.service';
+import { MainService } from '../main.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -12,7 +13,6 @@ export class FooterComponent implements OnInit {
 
 
   constructor(private main: MainService) { }
-
 
   
   ngOnInit() {

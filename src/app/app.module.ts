@@ -4,8 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-//import { MatInputModule } from '@angular/material/input';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './user/header/header.component';
@@ -16,7 +17,7 @@ import { UserComponent } from './user/user.component';
 import { UMainComponent } from './user/u-main/u-main.component';
 import { StackComponent } from './user/u-main/stack/stack.component';
 import { WorksComponent } from './user/u-main/works/works.component';
-import { FooterComponent } from './user/u-main/footer/footer.component';
+import { FooterComponent } from './footer/footer.component';
 import { UAboutComponent } from './user/u-about/u-about.component';
 import { UBlogComponent } from './user/u-blog/u-blog.component';
 import { AdminComponent } from './admin/admin.component';
@@ -68,8 +69,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
- 
-    //MatInputModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule
  
   ], 
   providers: [MainService],

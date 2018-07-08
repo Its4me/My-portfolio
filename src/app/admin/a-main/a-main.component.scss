@@ -21,7 +21,14 @@
 .p-description{
     margin-bottom: 5px;
     float: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
+    P{
+        float: left;
+        padding-right: 10px;
+    }
 }
 .headers-description{
     width: 400px;
@@ -29,4 +36,107 @@
     resize: none;
     height: 250px;
     padding: 3px 8px;
+}
+.technologies{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.technologies-item{
+    width: 23%;
+    max-width: 250px;
+    background-color: #fff;
+    padding: 8px;
+ 
+    margin: 0 10px 15px;
+    position: relative;
+    border-radius: 4px;
+}
+.technologies-item-input-wrapper{
+    width: 100%;
+    input, textarea{
+        width: 100%;
+        float: left;
+    }
+    textarea{
+        min-height: 55px;
+    }
+}
+.delete{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.works{
+    width: 100%;
+    float: left;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.works-item{
+    width: 30%;
+    position: relative;
+    padding: 8px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    max-width: 335px;
+    position: relative;
+    border-radius: 4px;
+}
+.newItem{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: rgb(255, 86, 86);
+    i{
+        font-size: 50px;
+        margin: 30px auto;
+        transition: all 0.4s ease-in-out;
+    }
+    &:hover{
+        cursor: pointer;
+        i{
+            transform: scale(1.1);
+        }
+    }
+}
+.wrapper-h2{
+    width: 100%;
+    float: left;
+}
+.wrapper-h2-block{
+    width: 250px;
+    margin: 0 auto;
+    display: block;
+    input{
+        text-align: center;
+    }
+}
+.about-text{
+    width: 300px;
+    float: left;
+    textarea{
+        height: 200px;
+    }
+}
+.saveH2{
+    position: absolute;
+    right: 10px;
+    top: 0;
+    i{
+        font-size: 25px;
+        color: #fff;
+    }
+}
+.saveAbout{
+    position: relative;
+    float: left;
+    i{
+        font-size: 25px;
+        color: #fff;
+    }
 }

@@ -89,22 +89,164 @@ export class MainService {
     this.http.put(url + '/h2?' + apiKey , json ,httpOptions)
     .subscribe(
       res => JSON.stringify(res),
-      err => console.error(err),
-      () => this.h2Get()
+      err => console.error(err),  
     ); 
     
     // about text save
     
-    this.http.put(url + '/aboutMe?' + apiKey , {"_id":0, "value": this.aboutMeText} ,httpOptions)
+    this.http.put(url + '/aboutMe/0?' + apiKey , {"value": this.aboutMeText} ,httpOptions)
     .subscribe(
       res => JSON.stringify(res),
       err => console.error(err),
-      () => this.aboutGet()
     ); 
+
+
+    // stack save
+    let timeStack = [];
+    for (let i = 0; i < this.stack.length; i++) {
+      timeStack[i] = {
+        _id : i.toString(),
+        description: this.stack[i].description,
+        name: this.stack[i].name,
+        imgSrc: this.stack[i].imgSrc
+      };
+      
+    }
+
+    this.http.put(url + '/stack?' + apiKey,timeStack, httpOptions).subscribe(
+      res => JSON.stringify(res),
+      err => console.error(err)
+    )
+
+    // works save
+    let timeWork = [];
+    for (let i = 0; i < this.works.length; i++) {
+      timeWork[i] = {
+        _id : i.toString(),
+        imgSrc: this.works[i].imgSrc,
+        description: this.works[i].description,
+        src: this.works[i].src
+      }
+
+    }
     
-
-
-
+    this.http.put(url + '/myWorks?' + apiKey, timeWork ,httpOptions)
+    .subscribe(
+      res => JSON.stringify(res),
+      err => console.error(err)
+    )
   }
-  
+
+
+  addStack(){
+    let id = this.stack.length - 1;
+    let newStack = {
+      _id: id,
+      imgSrc: this.stack[id].imgSrc,
+      name: this.stack[id].name,
+      description: this.stack[id].description
+    }
+    this.http.post(url + '/stack?' + apiKey, newStack ,httpOptions)
+    .subscribe(
+      res => JSON.stringify(res),
+      err => console.error(err)
+    )
+  }
+  deleteStack(id){
+    let timeStack = [];
+    let timeI = 0;
+    this.http.get(url + '/stack?' + apiKey).subscribe(
+      obj => {
+        let i = 0;
+        while(obj[i]){
+          if(i == id){
+            timeI = 1;
+          }
+          if(obj[i + timeI] == undefined){
+            break;
+          }
+          timeStack[i] = {
+            _id : i.toString(),
+            description: obj[i + timeI].description,
+            name: obj[i + timeI].name,
+            imgSrc: obj[i + timeI].imgSrc
+          };
+
+          i++;
+        }
+      },
+      err => console.error(err),
+      () => {
+        this.http.put(url + '/stack?' + apiKey, timeStack ,httpOptions)
+        .subscribe(
+          res => JSON.stringify(res)
+        );
+        
+      })    
+  }
+
+
+  addWork(){
+    let id = this.works.length - 1;
+    let newWorks = {
+      _id: id,
+      imgSrc: this.works[id].imgSrc,
+      description: this.works[id].description,
+      src: this.works[id].src
+    }
+    this.http.post(url + '/myWorks?' + apiKey, newWorks ,httpOptions)
+    .subscribe(
+      res => JSON.stringify(res),
+      err => console.error(err)
+    )
+  }
+
+
+  deleteWork(id){
+    let timeWork = [];
+    let timeI = 0;
+    this.http.get(url + '/myWorks?' + apiKey).subscribe(
+      obj => {
+        let i = 0;
+        while(obj[i]){
+          if(i == id){
+            timeI = 1;
+          }
+          if(obj[i + timeI] == undefined){
+            break;
+          }
+          timeWork[i] = {
+            _id : i.toString(),
+            imgSrc: obj[i + timeI].imgSrc,
+            description: obj[i + timeI].description,
+            src: obj[i + timeI].src
+          };
+          i++;
+        }
+      },
+      err => console.error(err),
+      () => {
+        this.http.put(url + '/myWorks?' + apiKey, timeWork ,httpOptions)
+        .subscribe(
+          res => JSON.stringify(res)
+        );
+        
+      })    
+  }
+
+  saveH2(id){
+    this.http.put(url + '/h2/' + id + '?' + apiKey, {value: this.h2[id]}, httpOptions).subscribe(
+      res => JSON.stringify(res),
+      err => console.error(err)
+      
+    )
+  }
+
+
+  saveAbout(){
+    this.http.put(url + '/aboutMe/0?' + apiKey, {value: this.aboutMeText} ,httpOptions).subscribe(
+      res => JSON.stringify(res),
+      err => console.error(err) 
+    )
+  }
 }

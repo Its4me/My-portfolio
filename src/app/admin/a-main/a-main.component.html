@@ -1,34 +1,126 @@
 <div class="a-main">
-
+  <!--About Secrion -->
   <div class="a-section">
-    <p class="headers-h2">h2: </p>
-    <input matInput [(ngModel)]="this.main.h2[0]" class="headers-text" type="text">
+    <div class="wrapper-h2">
+      <mat-form-field class="wrapper-h2-block">
+        <input matInput [(ngModel)]="this.main.h2[0]" type="text">
+        <div class="saveH2"><i (click)="_saveH2(0)" class="far fa-save"></i></div>
+      </mat-form-field>
+    </div>
+  
+   
     <div class="clear"></div>
-    <p class="p-description">Text about me</p>
-    <textarea [(ngModel)]="this.main.aboutMeText" class="headers-description"></textarea>
+    <div class="p-description">
+      <p>Text about me</p>  
+      <div class="saveAbout">
+        <i (click)="_saveAbout()" class="far fa-save"></i>
+      </div>
+    </div>
+    <mat-form-field class="about-text">
+      <textarea matInput [(ngModel)]="this.main.aboutMeText" type="text"></textarea>
+     </mat-form-field>
   </div>
 
+  <!--Stack Secrion -->
+
   <div class="a-section">
-      <p class="headers-h2">h2: </p>
-      <input class="headers-text" [(ngModel)]="this.main.h2[1]" type="text">
-      <div class="clear"></div>
-      <div class="technologies">
-        <div *ngFor="let tech of " class="technologies-item">
-          <p class="technologies-item-head">Name of technology</p> 
-          <input class="technologies-item-input" type="text">
-          <p class="technologies-item-descr">Name of technology</p> 
-          <textarea class="technologies-item-textarea" type="text"></textarea>
+    <div class="wrapper-h2">
+      <mat-form-field class="wrapper-h2-block">
+        <input matInput [(ngModel)]="this.main.h2[1]" type="text">
+        <div class="saveH2"><i (click)="_saveH2(1)" class="far fa-save"></i></div>
+      </mat-form-field>
+    </div>
+    <div class="clear"></div>
+    <div class="technologies">
+      <div *ngFor="let tech of this.main.stack; let i = index" class="technologies-item">
+
+        <mat-form-field class="technologies-item-input-wrapper">
+          <input matInput  [(ngModel)]="tech.imgSrc"  placeholder="Link for image" type="text">
+        </mat-form-field>
+
+        <mat-form-field class="technologies-item-input-wrapper">
+          <input matInput [(ngModel)]="tech.name" placeholder="Name of technology" type="text">
+        </mat-form-field>
+
+        <mat-form-field class="technologies-item-input-wrapper">
+         <textarea matInput [(ngModel)]="tech.description"  placeholder="Description of technology" type="text"></textarea>
+        </mat-form-field>
+
+        <div class="delete" (click)="_deleteStack(i)" ><i class="fas fa-trash-alt"></i></div>
+
+      </div> 
+      <button class="technologies-item newItem" *ngIf="!addNewStack" (click)="_toggleStack()">
+          <i class="fas fa-plus"></i>
+        </button>
+
+
+      <div class="technologies-item" *ngIf="addNewStack">
+        
+          <mat-form-field class="technologies-item-input-wrapper">
+              <input matInput [(ngModel)]="stack.imgSrc"  placeholder="Website Link" type="text">
+          </mat-form-field>
+          
+          <mat-form-field class="technologies-item-input-wrapper">
+              <input matInput  [(ngModel)]="stack.name" placeholder="Link for image" type="text">
+          </mat-form-field>
+
+          <mat-form-field class="technologies-item-input-wrapper">
+              <textarea matInput [(ngModel)]="stack.description"  placeholder="Description" type="text"></textarea>
+          </mat-form-field>
+
+          <button mat-button type="button" (click)="_addStack()" >Add</button>
+
         </div>
       </div>
-  </div>
 
+    </div>
+<!--Work Secrion -->
   <div class="a-section">
-      <p class="headers-h2">h2: </p>
-      <input class="headers-text" [(ngModel)]="this.main.h2[2]" type="text"> 
+    <div class="wrapper-h2">
+      <mat-form-field class="wrapper-h2-block">
+        <input matInput [(ngModel)]="this.main.h2[2]" type="text">
+        <div class="saveH2"><i (click)="_saveH2(2)" class="far fa-save"></i></div>
+      </mat-form-field>
+    </div>
       <div class="clear"></div>
-    
-      
+      <div class="works">
+        <div class="works-item" *ngFor="let work of this.main.works; let i = index">
+            <mat-form-field class="technologies-item-input-wrapper">
+                <input matInput  [(ngModel)]="work.src"  placeholder="Website Link" type="text">
+            </mat-form-field>
+            
+            <mat-form-field class="technologies-item-input-wrapper">
+                <input matInput  [(ngModel)]="work.imgSrc"  placeholder="Link for image" type="text">
+            </mat-form-field>
+
+            <mat-form-field class="technologies-item-input-wrapper">
+                <textarea matInput  [(ngModel)]="work.description"  placeholder="Description" type="text"></textarea>
+            </mat-form-field>
+
+            <div class="delete" (click)="_deleteWork(i)"><i class="fas fa-trash-alt"></i></div>
+        </div>
+        <button class="works-item newItem" mat-button *ngIf="!addNewWorking" (click)="_toggleWork()">
+          <i class="fas fa-plus"></i>
+        </button>
+
+
+        <div class="works-item" *ngIf="addNewWorking">
+       
+        <mat-form-field class="technologies-item-input-wrapper">
+            <input matInput [(ngModel)]="works.src" placeholder="Website Link" type="text">
+        </mat-form-field>
+        
+        <mat-form-field class="technologies-item-input-wrapper">
+            <input matInput [(ngModel)]="works.imgSrc" placeholder="Link for image" type="text">
+        </mat-form-field>
+
+        <mat-form-field class="technologies-item-input-wrapper">
+            <textarea matInput [(ngModel)]="works.description" placeholder="Description" type="text"></textarea>
+        </mat-form-field>
+        <button type="button" mat-button (click)="_addWork()" >Add</button>
+      </div>
+    </div>
   </div>
-  <button type="button" (click)='_saveAll()' >Save changes</button>
+  <button type="button" mat-button (click)='_saveAll()' >Save changes</button>
 
 </div>
