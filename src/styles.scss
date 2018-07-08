@@ -1,4 +1,10 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$header: #03A9F4;
+$сolorThree: #64B5F6; 
+$colorOne: #B3E5FC;
+$colorHalf: #E3F2FD;
+$help: #FFEB3B;
+
 
 *{
     box-sizing: border-box;
@@ -12,11 +18,12 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
-    font-size: 16px;
+    font-size: 16px; 
+    background-color: $colorHalf;
 }
 .container{
     width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 .row{
     float: left;
@@ -29,48 +36,51 @@ h1{
     width: 100%;
     z-index: 5;
     font-size: 4em;
-    color: #5f92ff;
+    color: $help;
+    background-color: $сolorThree;
+    border-radius: 12px;
 }
 h2{
     font-size: 1.8em;
     text-align: center;
+    color: #000;
+    font-weight: 100;
 }
 section{
     padding-bottom: 100px;
+    box-shadow: 0px 5px 20px -10px #000;
 }
-
 
 // Themes
+header{
+    background-color: $header;
+    box-shadow: 0px 5px 10px -5px #000;
+}
 
-header.theme-blue{
+.button-down{
+    background-color: $help;
+    i{
+        color: #000;
+    }
+}
+.stack-item{
     background-color: #fff;
-    box-shadow: 0px 5px 20px -10px #000;
 }
-section.theme-blue{
-    box-shadow: 0px 5px 20px -10px #000;
+footer{
+    background-color: $header;
+  
 }
-footer.theme-blue{
-    background-color: rgb(95, 146, 255);;
+app-admin header{
+    box-shadow: none;
 }
-.theme-blue{
+.a-right, .a-left{
+    background-color: $сolorThree;
+}
+
     nav li{
-        color: rgb(95, 146, 255);
-       
         a{
-            color:  rgb(95, 146, 255);
+            color:  #000;
         }
-    }
-    .button-down{
-        background-color: rgb(95, 146, 255);
-        i{
-            color: #fff;
-        }
-    }
-    h2{
-        color: rgb(95, 146, 255);
-    }
-    .right{
-        border: 1px solid rgb(95, 146, 255);
     }
     .stack-item{
         box-shadow: 0 0 10px -3px #000;
@@ -87,15 +97,32 @@ footer.theme-blue{
     }
     .logo a{
         font-size: 1.8em;
-        color: rgb(95, 146, 255);
+        color: #000;
     }
-    .wrapper-h1{
-        background-color: rgba(255, 255, 255, 0.9);
+i{
+    color: $help;
+}
+.delete i {
+    color: #000;
+}
+.newItem{
+    background-color: #fff;
+    i{
+        color: $сolorThree;
+
     }
 }
-
-
-
+.saveButton{
+    background-color: $help!important;
+}
+.addButton{
+    background-color: $сolorThree!important;
+}
+.a-left{
+    li.active-admin-li{
+        background-color: $colorHalf;
+    }
+}
 
 // adaptive
 
@@ -131,3 +158,29 @@ footer.theme-blue{
     }
   
 }
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$candy-app-primary: mat-palette($mat-blue,500);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$candy-app-warn:    mat-palette($mat-red);
+ 
+// Create the theme object (a Sass map containing all of the palettes). 
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($candy-app-theme);

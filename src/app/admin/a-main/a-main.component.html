@@ -68,7 +68,7 @@
               <textarea matInput [(ngModel)]="stack.description"  placeholder="Description" type="text"></textarea>
           </mat-form-field>
 
-          <button mat-button type="button" (click)="_addStack()" >Add</button>
+          <button mat-button type="button" class="addButton" (click)="_addStack()" >Add</button>
 
         </div>
       </div>
@@ -117,10 +117,10 @@
         <mat-form-field class="technologies-item-input-wrapper">
             <textarea matInput [(ngModel)]="works.description" placeholder="Description" type="text"></textarea>
         </mat-form-field>
-        <button type="button" mat-button (click)="_addWork()" >Add</button>
+        <button type="button" class="addButton" mat-button (click)="_addWork()" >Add</button>
       </div>
     </div>
   </div>
-  <button type="button" mat-button (click)='_saveAll()' >Save changes</button>
+  <button type="button" class="saveButton" mat-button (click)='_saveAll()' >Save changes</button>
 
-</div>
+</div> 
