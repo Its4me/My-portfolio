@@ -49,7 +49,7 @@
         <div class="delete" (click)="_deleteStack(i)" ><i class="fas fa-trash-alt"></i></div>
 
       </div> 
-      <button class="technologies-item newItem" *ngIf="!addNewStack" (click)="_toggleStack()">
+      <button class="technologies-item newItem" mat-button *ngIf="!addNewStack" (click)="_toggleStack()">
           <i class="fas fa-plus"></i>
         </button>
 
@@ -68,7 +68,7 @@
               <textarea matInput [(ngModel)]="stack.description"  placeholder="Description" type="text"></textarea>
           </mat-form-field>
 
-          <button mat-button type="button" class="addButton" (click)="_addStack()" >Add</button>
+          <button  type="button" class="addButton" mat-button (click)="_addStack()" >Add</button>
 
         </div>
       </div>

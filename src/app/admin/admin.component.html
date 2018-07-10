@@ -10,8 +10,8 @@
     <nav class="a-left">
         <p class="nav-header">Pages</p>
         <ul>
-            <li class="a-navigation" *ngFor="let page of nav" >
-                <a [routerLink]="page.href" >{{page.text}}</a>
+            <li class="a-navigation" *ngFor="let page of nav; let i = index" [class.active-admin-li]="this.nav[i].active">
+                <a [routerLink]="page.href" (click)="_changeActiveUrl(i)" >{{page.text}}</a>
             </li>
         </ul>
     </nav>

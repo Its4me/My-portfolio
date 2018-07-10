@@ -22,6 +22,7 @@ export class MainService {
   aboutMeText;
   works: Works[] = [];
   stack: Stack[] = [];
+  aboutSite;
 
   constructor(private http: HttpClient) { }
 
@@ -29,9 +30,10 @@ export class MainService {
   h2Get(){
     this.h2 = this.http.get(url + '/h2?' + apiKey).subscribe(h2Object => {
       this.h2 = h2Object;
-      for (let i = 0; i < 3; i++){
+      for (let i = 0; i < 5; i++){
         this.h2[i] = this.h2[i].value;
       } 
+      
     },
     err => console.error(err)
     );
@@ -80,6 +82,17 @@ export class MainService {
   }
 
   
+  aboutSiteGet(){
+    this.http.get(url + '/aboutSite/0?' + apiKey).subscribe(
+      obj => {
+        this.aboutSite = obj;
+        this.aboutSite = this.aboutSite.value;
+      },
+      err => console.error(err)
+    )
+  }
+
+
   savaAll(){
     // h2 save
     let json: Object[] = [];
@@ -249,4 +262,14 @@ export class MainService {
       err => console.error(err) 
     )
   }
+  saveAboutSite(){
+    this.http.put(url + '/aboutSite/0?' + apiKey, {value: this.aboutSite} ,httpOptions).subscribe(
+      res => JSON.stringify(res),
+      err => console.error(err) 
+    )
+  }
+
+
+
+
 }

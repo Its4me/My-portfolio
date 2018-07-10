@@ -19,7 +19,7 @@ ul{
     bottom: 0;
     left: 50%;
     transition:all 0.5s ease-in-out;
-    background-color: rgb(146, 165, 250);
+    background-color: #fff;
 }
 li.active .header-line{
     width: 100%;
@@ -69,7 +69,7 @@ header, .row{
     }
     nav{
         width: 80%;
-        margin: 5px 10% 10px;
+        margin: 5px 10% 0;
     }
     .logo{
         width: 100%;

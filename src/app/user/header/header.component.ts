@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit {
   activeNow: number;
 
   ngOnInit()  {
+  
+      
       switch(this.route.url){
         case '/main': this.nav[0] = true;
                   break;

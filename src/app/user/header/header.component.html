@@ -4,16 +4,16 @@
       <div class="logo"><a href="">Yar</a></div>
       <nav>
         <ul>
-          <li>
-            <a routerLink="" (click)='_changeActiveUrl(0)' >Main</a>
+          <li [class.active]="nav[0]" >
+            <a routerLink=""   (click)='_changeActiveUrl(0)' >Main</a>
             <span class="header-line"></span>
           </li>
-          <li>
-            <a routerLink="blog" (click)='_changeActiveUrl(1)' >Blog</a>
+          <li [class.active]="nav[1]" >
+            <a routerLink="blog"   (click)='_changeActiveUrl(1)' >Blog</a>
             <span class="header-line"></span>
           </li>
-          <li>
-            <a routerLink="about" (click)='_changeActiveUrl(2)' >About</a>
+          <li [class.active]="nav[2]" >
+            <a routerLink="about"    (click)='_changeActiveUrl(2)' >About</a>
             <span class="header-line"></span>
           </li>
           

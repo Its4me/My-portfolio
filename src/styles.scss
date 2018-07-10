@@ -123,6 +123,44 @@ i{
         background-color: $colorHalf;
     }
 }
+.saveH2{
+    position: absolute;
+    right: 10px;
+    top: 0;
+    i{
+        font-size: 25px;
+       
+    }
+}
+.about-text{
+    width: 300px;
+    float: left;
+    textarea{
+        height: 200px;
+    }
+}
+.p-description{
+    margin-bottom: 5px;
+    float: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    P{
+        float: left;
+        padding-right: 10px;
+    }
+}
+.saveAbout{
+    i{
+        font-size: 25px;
+    }
+}
+.blog-post-figure{
+    border-bottom: 1px solid $сolorThree;
+    border-top: 1px solid $сolorThree;
+}
+
 
 // adaptive
 

@@ -1,3 +1,19 @@
-<p>
-  a-about works!
-</p>
+<div class="a-about">
+    <div class="a-section">
+        <div class="wrapper-h2">
+          <mat-form-field class="wrapper-h2-block">
+            <input matInput [(ngModel)]="this.main.h2[3]" type="text">
+            <div class="saveH2"><i (click)="this.main.saveH2(3)" class="far fa-save"></i></div>
+          </mat-form-field>
+      </div>
+      <div class="clear"></div>
+      <div class="p-description">
+          <p>Text about me</p>  
+          <div class="saveAbout">
+            <i (click)="_saveAbout()" class="far fa-save"></i>
+          </div>
+      </div>
+      <mat-form-field class="about-text">
+        <textarea matInput [(ngModel)]="this.main.aboutSite" type="text"></textarea>
+      </mat-form-field>
+</div>

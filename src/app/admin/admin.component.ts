@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MainService } from './../main.service';
 
 import { Component, OnInit } from '@angular/core';
@@ -12,19 +13,48 @@ import { Navigation } from './navigation';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private main: MainService) { }
+  constructor(private main: MainService,
+              private route: Router
+  ) { }
 
-  // shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+  
 
 
   ngOnInit() {
+    console.log(this.route.url);
+    
+    switch(this.route.url){
+      case '/admin/main': this.nav[0].active = true;
+                break;
+      case '/admin/blog': this.nav[1].active = true;
+                break;
+      case '/admin/about': this.nav[2].active = true;
+                break;
+    }
   }
 
 
   nav = [
-    new Navigation('Main','main'),
-    new Navigation('Blog','blog'),
-    new Navigation('About','about'),
-  ]
+    new Navigation('Main','main',false),
+    new Navigation('Blog','blog',false),
+    new Navigation('About','about',false),
+  ];
 
+
+  _changeActiveUrl(i){
+    switch(i){
+      case 0: this.nav[1].active = false;
+              this.nav[2].active = false;
+              this.nav[0].active = true;
+              break;
+      case 1: this.nav[0].active = false;
+              this.nav[2].active = false;
+              this.nav[1].active = true;
+              break;
+      case 2: this.nav[0].active = false;
+              this.nav[1].active = false;
+              this.nav[2].active = true;
+              break;
+    }
+  }
 }

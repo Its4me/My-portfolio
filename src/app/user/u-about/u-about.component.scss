@@ -1,0 +1,15 @@
+.about-site-text{
+    width: 50%;
+    margin: 0 auto;
+    font-size: 1em;
+    padding: 8px;
+    background-color: #fff;
+    margin: 20px 25% 0;
+    box-shadow: 0 0 5px -3px #000; 
+}
+@media (max-width: 776px){
+    .about-site-text{
+        width: 90%;
+        margin: 10px 5% 0;
+    }
+}

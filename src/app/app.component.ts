@@ -16,5 +16,6 @@ export class AppComponent {
     this.main.aboutGet();
     this.main.worksGet();
     this.main.stackGet();
+    this.main.aboutSiteGet();
   }
 }

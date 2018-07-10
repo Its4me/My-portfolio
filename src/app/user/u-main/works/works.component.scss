@@ -9,14 +9,18 @@
     width: 40%;
     margin-bottom: 30px;  
     position: relative;
+    overflow: hidden;
     &:hover .works-item-back{
         opacity: 1;
+        transform: rotateX(0deg);
         visibility: visible;
     }
 }
 .works-item-front{
     overflow: hidden;
     position: relative;
+    transition: all 0.4s ease-in-out;
+    transform-origin: 50% 100%;
     z-index: 1;
     img{
         width: 100%;
@@ -37,6 +41,8 @@ section{
     height: 100%;
     z-index: 2;
     opacity: 0;
+    transform: rotateX(-90deg);
+    transform-origin: 50% 50%;
     visibility: hidden;
     width: 100%;
     
