@@ -48,6 +48,8 @@
 
         <div class="delete" (click)="_deleteStack(i)" ><i class="fas fa-trash-alt"></i></div>
 
+        <button mat-button (click)="_saveStack(i)" class="save-one">Save</button>
+
       </div> 
       <button class="technologies-item newItem" mat-button *ngIf="!addNewStack" (click)="_toggleStack()">
           <i class="fas fa-plus"></i>
@@ -98,6 +100,9 @@
             </mat-form-field>
 
             <div class="delete" (click)="_deleteWork(i)"><i class="fas fa-trash-alt"></i></div>
+
+            <button mat-button (click)="_saveWork(i)" class="save-one">Save</button>
+
         </div>
         <button class="works-item newItem" mat-button *ngIf="!addNewWorking" (click)="_toggleWork()">
           <i class="fas fa-plus"></i>

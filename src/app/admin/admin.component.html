@@ -2,7 +2,16 @@
     <div class="container">
         <div class="row">
             <div class="logo"><a href="">Yar</a></div>
-            <div class="logined">user</div>
+            <form class="root" action="">
+                <input [(ngModel)]="enterPassword" type="password" name="pass">
+                <button mat-button (click)="_enterPass()" >Submit</button>
+            </form>
+           
+            <div class="logined">
+                <span *ngIf="!this.main.root">user</span>
+                <span *ngIf="this.main.root" >admin</span>
+                <button *ngIf="this.main.root" class="logout" mat-button (click)="_logout()" >Logout</button>
+            </div>
         </div>
     </div>
 </header>

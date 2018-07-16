@@ -112,10 +112,13 @@ i{
 
     }
 }
+.article-item{
+    box-shadow: 0 0 3px -1px $сolorThree;
+}
 .saveButton{
     background-color: $help!important;
 }
-.addButton{
+.addButton, .save-one{
     background-color: $сolorThree!important;
 }
 .a-left{
@@ -160,7 +163,17 @@ i{
     border-bottom: 1px solid $сolorThree;
     border-top: 1px solid $сolorThree;
 }
-
+.root{
+    input{
+        box-shadow: inset 0 0 34px 0 $help;
+    }
+    button{
+        background-color: $help!important;
+    }
+}
+.logined button{
+    background-color: $help!important;
+}
 
 // adaptive
 

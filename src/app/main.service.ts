@@ -1,10 +1,12 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { Post } from './user/u-blog/post';
 import { Stack } from './user/u-main/stack/stack';
 import { Works } from './user/u-main/works/works';
 
-import { map } from 'rxjs/operators';
+
 
 
 export const url = 'https://api.mlab.com/api/1/databases/mywebsite/collections';
@@ -16,13 +18,14 @@ const httpOptions = {
 @Injectable()
 export class MainService {
 
-
+  post: Post[] = [];
   colorThem: number = 0;
   h2;
   aboutMeText;
   works: Works[] = [];
   stack: Stack[] = [];
   aboutSite;
+  root = false;
 
   constructor(private http: HttpClient) { }
 
@@ -94,6 +97,7 @@ export class MainService {
 
 
   savaAll(){
+    if(this.checkPass()){return;}
     // h2 save
     let json: Object[] = [];
     for (let i = 0; i < 3; i++) { 
@@ -152,9 +156,10 @@ export class MainService {
 
 
   addStack(){
+    if(this.checkPass()){return;}
     let id = this.stack.length - 1;
     let newStack = {
-      _id: id,
+      _id: id.toString(),
       imgSrc: this.stack[id].imgSrc,
       name: this.stack[id].name,
       description: this.stack[id].description
@@ -166,6 +171,7 @@ export class MainService {
     )
   }
   deleteStack(id){
+    if(this.checkPass()){return;}
     let timeStack = [];
     let timeI = 0;
     this.http.get(url + '/stack?' + apiKey).subscribe(
@@ -200,9 +206,10 @@ export class MainService {
 
 
   addWork(){
+    if(this.checkPass()){return;}
     let id = this.works.length - 1;
     let newWorks = {
-      _id: id,
+      _id: id.toString(),
       imgSrc: this.works[id].imgSrc,
       description: this.works[id].description,
       src: this.works[id].src
@@ -216,6 +223,7 @@ export class MainService {
 
 
   deleteWork(id){
+    if(this.checkPass()){return;}
     let timeWork = [];
     let timeI = 0;
     this.http.get(url + '/myWorks?' + apiKey).subscribe(
@@ -248,6 +256,7 @@ export class MainService {
   }
 
   saveH2(id){
+    if(this.checkPass()){return;}
     this.http.put(url + '/h2/' + id + '?' + apiKey, {value: this.h2[id]}, httpOptions).subscribe(
       res => JSON.stringify(res),
       err => console.error(err)
@@ -257,19 +266,113 @@ export class MainService {
 
 
   saveAbout(){
+    if(this.checkPass()){return;}
     this.http.put(url + '/aboutMe/0?' + apiKey, {value: this.aboutMeText} ,httpOptions).subscribe(
       res => JSON.stringify(res),
       err => console.error(err) 
     )
   }
   saveAboutSite(){
+    if(this.checkPass()){return;}
     this.http.put(url + '/aboutSite/0?' + apiKey, {value: this.aboutSite} ,httpOptions).subscribe(
       res => JSON.stringify(res),
       err => console.error(err) 
     )
   }
+  addPost(){
+    if(this.checkPass()){return;}
+    let id = this.post.length - 1;
 
 
+    let newPost = {
+      _id: id.toString(),
+      header: this.post[id].header,
+      imgSrc: this.post[id].imgSrc,
+      text: this.post[id].text,
+      date: this.post[id].date,
+      time: this.post[id].time
+      
+    }
+    this.http.post(url + '/posts?' + apiKey, newPost ,httpOptions)
+    .subscribe(
+      res => JSON.stringify(res),
+      err => console.error(err)
+    )
+  }
 
-
+  postsGet(){
+    this.http.get(url + '/posts?' + apiKey).subscribe(
+      obj => {
+        let i = 0;
+        while(obj[i]){
+          this.post[i] = {
+            header: obj[i].header,
+            imgSrc: obj[i].imgSrc,
+            text: obj[i].text,
+            date: obj[i].date,
+            time: obj[i].time
+          }
+          i++;
+        }
+      }
+    )
+  }
+  deletePost(id){
+    if(this.checkPass()){return;}
+    let timePost = [];
+    let timeI = 0;
+    this.http.get(url + '/posts?' + apiKey).subscribe(
+      obj => {
+        let i = 0;
+        while(obj[i]){
+          if(i == id){
+            timeI = 1;
+          }
+          if(obj[i + timeI] == undefined){
+            break;
+          }
+          timePost[i] = {
+            _id : i.toString(),
+            header: obj[i + timeI].header,
+            imgSrc: obj[i + timeI].imgSrc,
+            text: obj[i + timeI].text,
+            date:  obj[i + timeI].date,
+            time:  obj[i + timeI].time
+          };
+          i++;
+        }
+      },
+      err => console.error(err),
+      () => {
+        console.log(timePost);
+        this.http.put(url + '/posts?' + apiKey, timePost ,httpOptions)
+        .subscribe(
+          res => JSON.stringify(res)
+        );
+      });  
+    }
+    savePost(i){
+      if(this.checkPass()){return;}
+      this.http.put(url + '/posts/' + i + '?' + apiKey, this.post[i] ,httpOptions).subscribe(
+        res => JSON.stringify(res)
+      );
+    }
+    saveStack(i){
+      if(this.checkPass()){return;}
+      this.http.put(url + '/stack/' + i + '?' + apiKey, this.stack[i] ,httpOptions).subscribe(
+        res => JSON.stringify(res)
+      );
+    }
+    saveWork(i){
+      if(this.checkPass()){return;}
+      this.http.put(url + '/myWorks/' + i + '?' + apiKey, this.works[i] ,httpOptions).subscribe(
+        res => JSON.stringify(res)
+      );
+    }
+    enterPass(root){
+      this.root = root;   
+    }
+    private checkPass(){
+      return !this.root;
+    }
 }

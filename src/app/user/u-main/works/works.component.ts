@@ -15,7 +15,6 @@ export class WorksComponent implements OnInit {
   constructor(private main: MainService) { }
 
   ngOnInit() {
-    this.main.h2Get();
   }
 
 }

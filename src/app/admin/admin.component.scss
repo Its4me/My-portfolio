@@ -71,3 +71,23 @@ ul{
     width: 100%;
     text-align: center;
 }
+.root{
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+    input{
+        width: 88px;
+        background-color: transparent;
+        border: none;
+        padding-left: 10px;
+
+    }
+   
+}
+button[mat-button]{
+    width: 20%;
+    line-height: 25px;
+}
+.logout{
+    margin-left: 10px;
+}

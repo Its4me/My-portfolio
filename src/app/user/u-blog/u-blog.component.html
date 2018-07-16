@@ -4,18 +4,17 @@
         <h2>{{this.main.h2[4]}}</h2>
         <div class="blog-list">
           <div class="article-wrapper">
-          <article>
-           
+          <article class="article-item" *ngFor="let post of this.main.post">
                 <div class="header">
-                    <h4>asdasdasasd asd </h4>
-                    <p class="data">24.05.2014 on 16:00</p>
+                    <h4>{{post.header}}</h4>
+                    <p class="data">{{post.date}} on {{post.time}}</p>
                 </div>
                 <figure>
                   <div class="img-wrapper blog-post-figure">
-                    <img src="assets/post1.jpeg" alt="">
+                    <img [src]="post.imgSrc" [alt]="post.header">
                   </div>
                   <figcaption>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis expedita voluptatibus officiis maxime ipsam ipsa excepturi, vel, quo consequuntur molestiae cupiditate unde perspiciatis obcaecati architecto quasi. Distinctio asperiores fuga sapiente.
+                    {{post.text}}
                   </figcaption>
                 </figure>      
           </article>

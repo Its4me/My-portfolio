@@ -15,4 +15,8 @@ export class AAboutComponent implements OnInit {
   _saveAbout(){
     this.main.saveAboutSite();
   }
+  _deletePost(id){
+    this.main.post.splice(id,1);
+    this.main.deletePost(id);
+  }
 }

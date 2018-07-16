@@ -13,16 +13,14 @@ import { Navigation } from './navigation';
 })
 export class AdminComponent implements OnInit {
 
+  password: string = '0045';
+  enterPassword = '';
   constructor(private main: MainService,
               private route: Router
   ) { }
 
-  
-
 
   ngOnInit() {
-    console.log(this.route.url);
-    
     switch(this.route.url){
       case '/admin/main': this.nav[0].active = true;
                 break;
@@ -57,4 +55,13 @@ export class AdminComponent implements OnInit {
               break;
     }
   }
+
+  _enterPass(){
+    this.main.enterPass(this.password == this.enterPassword); 
+    this.enterPassword = '';
+  }
+  _logout(){
+    this.main.root = false;
+  }
+
 }

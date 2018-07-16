@@ -1,0 +1,45 @@
+<div class="a-blog">
+    <mat-form-field class="wrapper-h2-block">
+        <input matInput [(ngModel)]="this.main.h2[4]" type="text">
+        <div class="saveH2"><i (click)="_saveH2(0)" class="far fa-save"></i></div>
+    </mat-form-field>
+    <div class="blog-posts">
+        <div class="blog-posts-item" *ngFor="let post of this.main.post; let i = index;">
+
+            <mat-form-field class="blog-posts-item-input">
+                <input matInput [(ngModel)]="post.header" placeholder="Header" type="text">
+            </mat-form-field>
+            <mat-form-field class="blog-posts-item-input">
+                <input matInput [(ngModel)]="post.imgSrc" placeholder="Image src" type="text">
+            </mat-form-field>
+            <mat-form-field class="blog-posts-item-input">
+                <textarea matInput [(ngModel)]="post.text" placeholder="Text" type="text"></textarea>
+            </mat-form-field>
+
+            <div class="delete" (click)="_deletePost(i)" ><i class="fas fa-trash-alt"  ></i></div>
+
+            <button mat-button (click)="_savePost(i)" class="save-one">Save</button>
+
+        </div>
+        <button class="blog-posts-item newItem" mat-button *ngIf="!addNewPost" (click)="_togglePost()">
+                <i class="fas fa-plus"></i>
+        </button>
+
+        <div class="blog-posts-item" *ngIf="addNewPost">
+        
+                <mat-form-field   class="blog-posts-item-input">
+                    <input matInput [(ngModel)]="post.header" placeholder="Header" type="text">
+                </mat-form-field>
+                <mat-form-field  class="blog-posts-item-input">
+                    <input matInput [(ngModel)]="post.imgSrc" placeholder="Image src" type="text">
+                </mat-form-field>
+                <mat-form-field  class="blog-posts-item-input">
+                    <textarea matInput [(ngModel)]="post.text" placeholder="Text" type="text"></textarea>
+                </mat-form-field>
+      
+                <button  type="button" class="addButton" mat-button (click)="_addPost()" >Add</button>
+      
+        </div>
+
+    </div>
+</div>

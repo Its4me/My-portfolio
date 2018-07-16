@@ -1,0 +1,56 @@
+.blog-posts{
+    width: 100%;
+    float: left;
+    display: flex;
+    justify-content: space-between;
+}
+.blog-posts-item{
+    width: 30%;
+    max-width: 300px;
+    background-color: #fff;
+    position: relative;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 0 15px 20px;
+    
+}
+.blog-posts-item-input{
+    width: 100%;
+    float: left;
+}
+.wrapper-h2-block{
+    width: 250px;
+    margin: 0 auto;
+    display: block;
+    input{
+        text-align: center;
+    }
+}
+.delete{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.a-blog{
+    width: 100%;
+    float: left;
+
+}
+.newItem{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    i{
+        font-size: 50px;
+        margin: 30px auto;
+        transition: all 0.4s ease-in-out;
+    }
+    &:hover{
+        cursor: pointer;
+        i{
+            transform: scale(1.1);
+        }
+    }
+}

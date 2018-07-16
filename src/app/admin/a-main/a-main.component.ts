@@ -77,7 +77,12 @@ export class AMainComponent implements OnInit {
     this.main.stack.splice(id,1);
     this.main.deleteStack(id);
   }
-
+  _saveStack(i){
+    this.main.saveStack(i);
+  }
+  _saveWork(i){
+    this.main.saveWork(i);
+  }
 
   _deleteWork(id){
     this.main.works.splice(id,1);
