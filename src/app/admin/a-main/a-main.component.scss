@@ -29,16 +29,14 @@
 .technologies{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 .technologies-item{
-    width: 23%;
-    max-width: 250px;
+    width: 22.5%;
     background-color: #fff;
     padding: 8px;
- 
-    margin: 0 10px 15px;
+    margin: 0 1.25% 15px;
     position: relative;
     border-radius: 4px;
 }
@@ -61,16 +59,15 @@
     width: 100%;
     float: left;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 .works-item{
-    width: 30%;
+    width: 22.5%;
     position: relative;
     padding: 8px;
     background-color: #fff;
-    margin-bottom: 15px;
-    max-width: 335px;
+    margin: 0 1.25% 15px;
     position: relative;
     border-radius: 4px;
 }

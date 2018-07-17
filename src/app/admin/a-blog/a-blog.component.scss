@@ -2,17 +2,21 @@
     width: 100%;
     float: left;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .blog-posts-item{
-    width: 30%;
+    width: 22.5%;
     max-width: 300px;
     background-color: #fff;
     position: relative;
     border-radius: 4px;
     padding: 8px;
-    margin: 0 15px 20px;
+    margin: 0 1.25% 20px;
     
+}
+.yellow{
+    float: left;
+    width: 100%;
 }
 .blog-posts-item-input{
     width: 100%;

@@ -1,10 +1,12 @@
 <div class="a-blog">
-    <mat-form-field class="wrapper-h2-block">
-        <input matInput [(ngModel)]="this.main.h2[4]" type="text">
-        <div class="saveH2"><i (click)="_saveH2(0)" class="far fa-save"></i></div>
-    </mat-form-field>
-    <div class="blog-posts">
-        <div class="blog-posts-item" *ngFor="let post of this.main.post; let i = index;">
+    <div class="yellow">
+        <mat-form-field class="wrapper-h2-block">
+            <input matInput [(ngModel)]="this.main.h2[4]" type="text">
+            <div class="saveH2"><i (click)="_saveH2(0)" class="far fa-save"></i></div>
+        </mat-form-field>
+    </div>
+    <div class="blog-posts" [@addNewItem]="this.main.post.length">
+        <div class="blog-posts-item animate-Item" *ngFor="let post of this.main.post; let i = index;">
 
             <mat-form-field class="blog-posts-item-input">
                 <input matInput [(ngModel)]="post.header" placeholder="Header" type="text">
@@ -21,7 +23,7 @@
             <button mat-button (click)="_savePost(i)" class="save-one">Save</button>
 
         </div>
-        <button class="blog-posts-item newItem" mat-button *ngIf="!addNewPost" (click)="_togglePost()">
+        <button class="blog-posts-item newItem animate-Item" mat-button *ngIf="!addNewPost" (click)="_togglePost()">
                 <i class="fas fa-plus"></i>
         </button>
 

@@ -1,6 +1,6 @@
 <div class="a-main">
   <!--About Secrion -->
-  <div class="a-section">
+  <div class="a-section yellow">
     <div class="wrapper-h2">
       <mat-form-field class="wrapper-h2-block">
         <input matInput [(ngModel)]="this.main.h2[0]" type="text">
@@ -24,15 +24,15 @@
   <!--Stack Secrion -->
 
   <div class="a-section">
-    <div class="wrapper-h2">
+    <div class="wrapper-h2  yellow">
       <mat-form-field class="wrapper-h2-block">
         <input matInput [(ngModel)]="this.main.h2[1]" type="text">
         <div class="saveH2"><i (click)="_saveH2(1)" class="far fa-save"></i></div>
       </mat-form-field>
     </div>
     <div class="clear"></div>
-    <div class="technologies">
-      <div *ngFor="let tech of this.main.stack; let i = index" class="technologies-item">
+    <div class="technologies" [@addNewItem]="this.main.stack.length">
+      <div *ngFor="let tech of this.main.stack; let i = index" class="technologies-item animate-Item"  >
 
         <mat-form-field class="technologies-item-input-wrapper">
           <input matInput  [(ngModel)]="tech.imgSrc"  placeholder="Link for image" type="text">
@@ -51,7 +51,7 @@
         <button mat-button (click)="_saveStack(i)" class="save-one">Save</button>
 
       </div> 
-      <button class="technologies-item newItem" mat-button *ngIf="!addNewStack" (click)="_toggleStack()">
+      <button class="technologies-item newItem animate-Item" mat-button *ngIf="!addNewStack" (click)="_toggleStack()">
           <i class="fas fa-plus"></i>
         </button>
 
@@ -59,34 +59,34 @@
       <div class="technologies-item" *ngIf="addNewStack">
         
           <mat-form-field class="technologies-item-input-wrapper">
-              <input matInput [(ngModel)]="stack.imgSrc"  placeholder="Website Link" type="text">
+              <input matInput [(ngModel)]="stack.imgSrc"  placeholder="Link for image"  type="text">
           </mat-form-field>
           
           <mat-form-field class="technologies-item-input-wrapper">
-              <input matInput  [(ngModel)]="stack.name" placeholder="Link for image" type="text">
+              <input matInput  [(ngModel)]="stack.name" placeholder="Name of technology" type="text">
           </mat-form-field>
 
           <mat-form-field class="technologies-item-input-wrapper">
-              <textarea matInput [(ngModel)]="stack.description"  placeholder="Description" type="text"></textarea>
+              <textarea matInput [(ngModel)]="stack.description" placeholder="Description of technology" type="text"></textarea>
           </mat-form-field>
 
           <button  type="button" class="addButton" mat-button (click)="_addStack()" >Add</button>
 
-        </div>
       </div>
-
     </div>
+
+  </div>
 <!--Work Secrion -->
   <div class="a-section">
-    <div class="wrapper-h2">
+    <div class="wrapper-h2  yellow">
       <mat-form-field class="wrapper-h2-block">
         <input matInput [(ngModel)]="this.main.h2[2]" type="text">
         <div class="saveH2"><i (click)="_saveH2(2)" class="far fa-save"></i></div>
       </mat-form-field>
     </div>
       <div class="clear"></div>
-      <div class="works">
-        <div class="works-item" *ngFor="let work of this.main.works; let i = index">
+      <div class="works" [@addNewItem]="this.main.works.length">
+        <div class="works-item animate-Item" *ngFor="let work of this.main.works; let i = index">
             <mat-form-field class="technologies-item-input-wrapper">
                 <input matInput  [(ngModel)]="work.src"  placeholder="Website Link" type="text">
             </mat-form-field>
@@ -104,10 +104,9 @@
             <button mat-button (click)="_saveWork(i)" class="save-one">Save</button>
 
         </div>
-        <button class="works-item newItem" mat-button *ngIf="!addNewWorking" (click)="_toggleWork()">
+        <button class="works-item newItem animate-Item" mat-button *ngIf="!addNewWorking" (click)="_toggleWork()">
           <i class="fas fa-plus"></i>
         </button>
-
 
         <div class="works-item" *ngIf="addNewWorking">
        

@@ -4,12 +4,18 @@ import { Component, OnInit } from '@angular/core';
 
 
 import { MainService } from './../../main.service';
+import { animations } from '../../animations';
+
+
 
 
 @Component({
   selector: 'app-a-main',
   templateUrl: './a-main.component.html',
-  styleUrls: ['./a-main.component.scss']
+  styleUrls: ['./a-main.component.scss'],
+
+  animations: [ animations ]
+
 })
 export class AMainComponent implements OnInit {
 

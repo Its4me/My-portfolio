@@ -1,3 +1,4 @@
+import { animations } from './../../animations';
 import { Post } from './../../user/u-blog/post';
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../../main.service';
@@ -5,7 +6,8 @@ import { MainService } from '../../main.service';
 @Component({
   selector: 'app-a-blog',
   templateUrl: './a-blog.component.html',
-  styleUrls: ['./a-blog.component.scss']
+  styleUrls: ['./a-blog.component.scss'],
+  animations: [ animations ]
 })
 export class ABlogComponent implements OnInit {
 
@@ -53,7 +55,7 @@ export class ABlogComponent implements OnInit {
       imgSrc: '',
       text: ''
     }
-
+    this._togglePost();
     
   }
   _savePost(i){
