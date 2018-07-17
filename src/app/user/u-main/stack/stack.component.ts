@@ -11,7 +11,7 @@ export class StackComponent implements OnInit {
 
 
 
-  constructor(private main: MainService) { }
+  constructor(public main: MainService) { }
 
   ngOnInit() {
  

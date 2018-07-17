@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
   myEventOld: any = {
     url: ''
   };
-  constructor(private main: MainService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(public main: MainService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.router.events.subscribe((event) => {
       this.myEventNew = event;
       if(this.myEventNew.url && this.myEventOld && this.myEventNew.url != this.myEventOld.url) {

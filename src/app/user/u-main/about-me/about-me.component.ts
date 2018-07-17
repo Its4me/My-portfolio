@@ -13,7 +13,7 @@ export class AboutMeComponent implements OnInit {
   h2: any[];
   colorThem = 0;
 
-  constructor(private main: MainService) { }
+  constructor(public main: MainService) { }
 
   ngOnInit() {
     

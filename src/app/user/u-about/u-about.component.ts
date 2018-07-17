@@ -8,7 +8,7 @@ import { MainService } from '../../main.service';
 })
 export class UAboutComponent implements OnInit {
 
-  constructor(private main: MainService) { }
+  constructor(public main: MainService) { }
 
   ngOnInit() {
   }

@@ -2,7 +2,7 @@
     <div class="yellow">
         <mat-form-field class="wrapper-h2-block">
             <input matInput [(ngModel)]="this.main.h2[4]" type="text">
-            <div class="saveH2"><i (click)="_saveH2(0)" class="far fa-save"></i></div>
+            <div class="saveH2"><i (click)="this.main.saveH2(4)" class="far fa-save"></i></div>
         </mat-form-field>
     </div>
     <div class="blog-posts" [@addNewItem]="this.main.post.length">

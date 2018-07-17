@@ -25,7 +25,7 @@ export class MainViewComponent implements OnInit {
     }
 
   }
-  constructor(private main: MainService) { }
+  constructor(public main: MainService) { }
 
   ngOnInit() {
   }

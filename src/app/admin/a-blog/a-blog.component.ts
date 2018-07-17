@@ -15,7 +15,7 @@ export class ABlogComponent implements OnInit {
 
 
 
-  constructor(private main: MainService) { }
+  constructor(public main: MainService) { }
 
   ngOnInit() {
   }
@@ -66,4 +66,5 @@ export class ABlogComponent implements OnInit {
     this.main.post.splice(i,1);
     this.main.deletePost(i);
   }
+
 }

@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
 
   password: string = '0045';
   enterPassword = '';
-  constructor(private main: MainService,
+  constructor(public main: MainService,
               private route: Router
   ) { }
 

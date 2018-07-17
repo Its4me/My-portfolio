@@ -12,7 +12,7 @@ export class WorksComponent implements OnInit {
 
 
 
-  constructor(private main: MainService) { }
+  constructor(public main: MainService) { }
 
   ngOnInit() {
   }

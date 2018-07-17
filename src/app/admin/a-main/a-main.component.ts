@@ -22,7 +22,7 @@ export class AMainComponent implements OnInit {
   addNewWorking = false;
   addNewStack = false;
 
-  constructor(private main: MainService) { }
+  constructor(public main: MainService) { }
   
   stack: Stack = {
     imgSrc: '',

@@ -11,7 +11,7 @@ import { MainService } from '../../main.service';
 })
 export class HeaderComponent implements OnInit {
   
-  constructor(private main: MainService,
+  constructor(public main: MainService,
               private route: Router 
             ) { }
   
