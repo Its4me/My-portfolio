@@ -314,7 +314,9 @@ export class MainService {
           }
           i++;
         }
-      }
+      },
+      err => console.error(err),
+      () => this.post.reverse() 
     )
   }
   deletePost(id){
@@ -344,7 +346,6 @@ export class MainService {
       },
       err => console.error(err),
       () => {
-        console.log(timePost);
         this.http.put(url + '/posts?' + apiKey, timePost ,httpOptions)
         .subscribe(
           res => JSON.stringify(res)

@@ -47,7 +47,7 @@ export class ABlogComponent implements OnInit {
       this.post.date = date;
       this.post.time = time;
 
-      this.main.post.push(this.post);
+      this.main.post.unshift(this.post);
       this.main.addPost();
     }
     this.post ={
