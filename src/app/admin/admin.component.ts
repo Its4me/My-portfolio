@@ -13,7 +13,7 @@ import { Navigation } from './navigation';
 })
 export class AdminComponent implements OnInit {
 
-  password: string = '0045';
+  password: string = '2308';
   enterPassword = '';
   constructor(public main: MainService,
               private route: Router
